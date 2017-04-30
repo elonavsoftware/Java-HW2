@@ -1,4 +1,4 @@
-/*(Assignment: 1 || Campus: Beer Sheva || Author:  Mahdi Asali, Elon Avisror || ID: 206331795,305370801)*/
+/*(Assignment: 2 || Campus: Beer Sheva || Author:  Mahdi Asali, Elon Avisror || ID: 206331795, 305370801)*/
 
 package utilities;
 import java.util.ArrayList;
@@ -12,9 +12,10 @@ import animals.Giraffe;
 import animals.Lion;
 import animals.Turtle;
 import food.IEdible;
+import mobility.Point;
 import plants.Cabbage;
 /**
- * @author baroh
+ * @author v
  *
  */
 public class Program
@@ -63,6 +64,7 @@ public class Program
 		System.out.println("********************************************");
 		System.out.println("\t\tInitilize");
 		System.out.println("********************************************");
+
 		animals = new ArrayList<>();
 		lion = new Lion("Simba");
 		animals.add(lion);
@@ -75,6 +77,7 @@ public class Program
 		turtle = new Turtle("Rafael", 50);
 		animals.add(turtle);
 		animals.add(new Bear("Ted", "BROWN"));
+
 		food = new LinkedList<>();
 		food.add(new Cabbage());
 		food.add(animals.get(0)); // Lion
@@ -83,11 +86,13 @@ public class Program
 	}
 	public static void main(String[] args)
 	{
+
 		init();
 		testSound();
 		feed();
 		move();
 		changeValues();
+
 	}
 	private static void move()
 	{

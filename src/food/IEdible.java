@@ -1,6 +1,10 @@
 package food;
-//NOT FINISHED CHECK THIS !!!!
+/**
+ * EIdible interface
+ * @author Elon
+ *
+ */
 public interface IEdible
 {
-	public EFoodType getFoodtype();
+	public EFoodType getFoodtype();	
 } //interface IEdible

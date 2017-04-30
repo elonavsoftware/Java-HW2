@@ -54,7 +54,6 @@ public class MessageUtility
 		String str = "[g]" + name + ":  \t" + funcName + "() => " + value;
 		System.out.println(str);
 	}
-
 	/**
 	 * @param name
 	 *            - Name of the Animal

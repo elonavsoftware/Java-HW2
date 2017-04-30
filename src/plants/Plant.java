@@ -1,8 +1,8 @@
 package plants;
 import java.util.Random;
 import utilities.MessageUtility;
-import utilities.Point;
 import mobility.ILocatable;
+import mobility.Point;
 import food.EFoodType;
 import food.IEdible;
 /**
@@ -37,6 +37,7 @@ public abstract class Plant implements IEdible, ILocatable
 		this.weight = rand.nextInt(12);
 		MessageUtility.logConstractor("Plant", "Plant");
 	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -48,6 +49,7 @@ public abstract class Plant implements IEdible, ILocatable
 		MessageUtility.logGetter(this.getClass().getSimpleName(), "getFoodType", EFoodType.VEGETABLE);
 		return EFoodType.VEGETABLE;
 	}
+
 	/**
 	 * @return
 	 */
@@ -56,6 +58,7 @@ public abstract class Plant implements IEdible, ILocatable
 		MessageUtility.logGetter(this.getClass().getSimpleName(), "getHeight", this.height);
 		return this.height;
 	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -67,6 +70,7 @@ public abstract class Plant implements IEdible, ILocatable
 		MessageUtility.logGetter(this.getClass().getSimpleName(), "getLocation", this.location);
 		return this.location;
 	}
+
 	/**
 	 * @return
 	 */
@@ -82,6 +86,7 @@ public abstract class Plant implements IEdible, ILocatable
 	 */
 	public boolean setHeight(double height)
 	{
+
 		boolean isSuccess = (height >= 0);
 		if (isSuccess)
 			this.height = height;
@@ -90,6 +95,7 @@ public abstract class Plant implements IEdible, ILocatable
 		MessageUtility.logSetter(this.getClass().getSimpleName(), "setHeight", height, isSuccess);
 		return isSuccess;
 	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -104,6 +110,7 @@ public abstract class Plant implements IEdible, ILocatable
 		MessageUtility.logSetter(this.getClass().getSimpleName(), "setLocation", newLocation, isSuccess);
 		return isSuccess;
 	}
+
 	/**
 	 * @param weight
 	 * @return
@@ -118,11 +125,12 @@ public abstract class Plant implements IEdible, ILocatable
 		MessageUtility.logSetter(this.getClass().getSimpleName(), "setWeight", weight, isSuccess);
 		return isSuccess;
 	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString() {return "[" + this.getClass().getSimpleName() + "] ";}
+	public String toString() {return "[" + this.getClass().getSimpleName() + "]";}
 } //abstract class Plant implements IEdible, ILocatable

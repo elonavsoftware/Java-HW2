@@ -1,61 +1,66 @@
 package animals;
-import diet.Carnivore;
 import diet.IDiet;
+import diet.Omnivore;
+import mobility.Point;
 import utilities.MessageUtility;
-import utilities.Point;
+/**
+ * Bear class ,extends 'AnimalThatRoars' class.
+ * @author Elon
+ *
+ */
 public class Bear extends AnimalThatRoars
 {
-	//Attributes
+	/**
+	 * 
+	 */
 	private String furColor;
-	//Ctors.
+	/**
+	 * Bear Constructor
+	 * @param name
+	 * @param newFurColor
+	 */
 	public Bear(String name, String newFurColor)
 	{
 		super(name,new Point(100,5));
-		super.setWeight(308.2);
-		this.setFurColor(newFurColor);
-		//IDiet _diet=new Omnivore();
-		IDiet _diet=new Carnivore(); //temp change it later@!!!!
-		this.setDiet(_diet);
 		MessageUtility.logConstractor(this.getClass().getSimpleName(),name);
+		super.setWeight(308.2);
+		boolean res=this.setFurColor(newFurColor);
+		IDiet _diet = new Omnivore();
+		if(!res)
+			this.setFurColor("GRAY");
+		this.setDiet(_diet);
 	}
-	//Methods:
-	public void roar()
-	{
-		//?
-	}
-	///////////////My Methods///////////////
+	/**
+	 * roar function prints a message of utility .
+	 */
+	public void roar() {MessageUtility.logSound(name, "Stands on its hind legs, roars and scratches its belly");}
+	/**
+	 * getFurColor
+	 * @return this.furColor
+	 */
 	public String getFurColor()
 	{
 		MessageUtility.logGetter(name, "getFurColor", this.furColor);
 		return this.furColor;
 	}
+	/**
+	 * setFurColor function which sets the color of bear.
+	 * @param newFurColor
+	 * @return
+	 */
 	public boolean setFurColor(String newFurColor)
 	{
-		boolean res=false;
-		if(newFurColor=="BLACK" || newFurColor =="WHITE" || newFurColor == "GRAY")
+		boolean res = false;
+		if(newFurColor == "BLACK" || newFurColor == "WHITE" || newFurColor == "GRAY")
 		{
-			this.furColor=newFurColor;
-			res=true;
+			this.furColor = newFurColor;
+			res = true;
 		}
 		else
 		{
-			this.furColor="GRAY"; //by Default.
-			res=true;
+			res = false;
 		}
 		MessageUtility.logSetter(name, "setFurColor", newFurColor, res);
 		return res;
 	}
-	/*public boolean setName(String _name)
-	{
-		boolean res=false;
-		if(_name!=null)
-		{
-			res=true;
-		
-		super.setName(_name);
-		}
-		MessageUtility.logSetter(_name, "setName", _name, res);
-		return res;
-	}*/
-	/////////////////////////////////////////
 } //class Bear extends AnimalThatRoars

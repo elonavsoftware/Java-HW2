@@ -5,5 +5,5 @@ import food.IEdible;;
 public interface IDiet
 {
 	boolean canEat(EFoodType food);
-	boolean eat(Animal animal , IEdible food);
+	boolean eat(Animal animal, IEdible food);
 } //interface IDiet
