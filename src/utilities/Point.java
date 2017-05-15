@@ -1,8 +1,8 @@
 package utilities;
 
 /**
- * a Point Class , creating a point which contain x ,y 
- * each of x , y is a 2d position.
+ * a Point Class, creating a point which contain x, y 
+ * each of x, y is a 2d position.
  * @author Mahdi Asali 
  *
  */
@@ -14,51 +14,76 @@ public class Point
 	  * @param x
 	  * @param y
 	  */
-	 public Point(int x, int y)
+	 public Point(int x,int y)
 	 {
-		 this.x = x;
-		 this.y = y;
+		 this.setX(x);
+		 this.setY(y);
 	 }
+	 /**
+	  * Point ctor
+	  * @param p
+	  */
      public Point(Point p)
      {
-    	    this(p.GetX(), p.GetY());
+    	    this(p.getX(), p.getY());
     	    //no defensive copies are created here, since 
     	    //there are no mutable object fields (String is immutable)
      }
-	 /**
-	  * this method receive two integers , and init the object point. 
-	  * @param x
-	  * @param y
-	  * @return true or false , if the point in the boundaries x must be between 0 and 800 , y must be between 0 and 600.
-	  */
-	 public boolean set(int x, int y)
+     /**
+      * setX sets the cord x of point.
+      * @param x
+      * @return
+      */
+	 public boolean setX(int _x)
 	 {
 		 boolean res = false;
-		 if((0 <= x && x <= 800) &&(0 <= y && y <= 600))
+		 if(x >= 0 && x <= 800)
 		 {
-			 this.x = x;
-			 this.y = y;
+			 this.x = _x;
+			 res = true;
+		 }
+		 return res;
+	 }
+	 /**
+	  * setY sets the cord y of point.
+	  * @param y
+	  * @return
+	  */
+	 public boolean setY(int _y)
+	 {
+		 boolean res = false;
+		 if(y >= 0 && y <= 600)
+		 {
+			 this.y = _y;
 			 res = true;
 		 }
 		 return res;
 	 }
 	 /**
 	  * 
+	  */
+	public String toString() {return "(" + this.getX() +","+this.getY() +")";}
+	 /**
+	  * checkBounderies function checks if the point in the right and limited position.
 	  * @return x
 	  */
 	 public static boolean cheackBounderies(Point newLocation)
 	 {
-		 if(newLocation.GetX() < 0 || newLocation.GetY() > 800)
-			 return false;
-		 else if(newLocation.GetY() < 0 || newLocation.GetY() > 600)
-			 return false;
+		 boolean x = false;
+		 if((newLocation.getX() < 0 || newLocation.getX() > 800)||(newLocation.getY() < 0 || newLocation.getY() > 600))
+			 x = false;
 		 else
-			 return true;
+			 x = true;
+		 return x;
 	 }
-	 public int GetX() {return x;}
 	 /**
-	  * 
+	  * getX method
+	  * @return x
+	  */
+	 public int getX() {return x;}
+	 /**
+	  * getY method
 	  * @return y
 	  */
-	 public int GetY() {return y;}
+	 public int getY() {return y;}
 } //class Point
